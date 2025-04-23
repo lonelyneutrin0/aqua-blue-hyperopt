@@ -1,21 +1,19 @@
-# Python package template
-
-[![Custom shields.io](https://img.shields.io/badge/docs-brightgreen?logo=github&logoColor=green&label=gh-pages)](https://chicago-club-management-company.github.io/python_package_template/)
-
-Example package template. You can run and install with:
+# aqua-blue-hyperopt
+Hyperparameter optimization library for aqua-blue models
+[![Custom shields.io](https://img.shields.io/badge/docs-brightgreen?logo=github&logoColor=green&label=gh-pages)](https://chicago-club-management-company.github.io/aqua-blue-hyperopt/)
 
 ```bash
-git clone https://github.com/Chicago-Club-Management-Company/python_package_template
-pip install python_package_template/
+git clone https://github.com/Chicago-Club-Management-Company/aqua_blue_hyperopt
+pip install aqua-blue-hyperopt/
 ```
 
 or, with dev packages, and running the CI/CD:
 
 ```bash
-git clone https://github.com/Chicago-Club-Management-Company/python_package_template
-cd python_package_template/
-pip install python_package_template/[dev]
+git clone https://github.com/Chicago-Club-Management-Company/aqua-blue-hyperopt
+cd aqua-blue-hyperopt/
+pip install aqua-blue-hyperopt/[dev]
 pytest
-ruff check cool_package/
-mypy cool_package/
+ruff check aqua_blue_hyperopt/
+mypy aqua_blue_hyperopt/
 ```
