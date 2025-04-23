@@ -3,19 +3,16 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "cool-package"
+name = "aqua-blue-hyperopt"
 dynamic = ["version"]
-description = "A very cool package!"
+description = "Hyperparameter optimization for aqua-blue models!"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.9"
-author = { name = "Jane Doe", email = "jane.doe@chicagoclubteam.org" }
+author = { name = "Hrishikesh Belagali", email = "hrishikesh.belagali@ccmc.global" }
 keywords = [
-    "Lorem",
-    "ipsum",
-    "dolor",
-    "sit",
-    "amet"
+    'aqua-blue',
+    'optimization',
 ]
 classifiers = [
     "Programming Language :: Python :: 3.9",
@@ -28,7 +25,7 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/Chicago-Club-Management-Company/python-package-template"
+Homepage = "https://github.com/Chicago-Club-Management-Company/aqua-blue-hyperopt"
 
 [project.optional-dependencies]
 dev = [
@@ -40,9 +37,9 @@ dev = [
 ]
 
 [tool.hatch.version]
-path = "cool_package/__init__.py"
+path = "aqua_blue_hyperopt/__init__.py"
 
 [tool.hatch.build.targets.sdist]
 include = [
-    "/aqua_blue",
+    "/aqua_blue_hyperopt",
 ]
