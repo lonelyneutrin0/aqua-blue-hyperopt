@@ -1,5 +1,5 @@
 # aqua-blue-hyperopt
-Hyperparameter optimization library for aqua-blue models
+Hyperparameter optimization library for aqua-blue models <br/>
 [![Custom shields.io](https://img.shields.io/badge/docs-brightgreen?logo=github&logoColor=green&label=gh-pages)](https://chicago-club-management-company.github.io/aqua-blue-hyperopt/)
 
 ```bash
