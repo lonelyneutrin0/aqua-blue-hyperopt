@@ -24,7 +24,7 @@ def test_matrix_multiplication():
     b = rng.uniform(size=(50, 10))
     foo = aqua_blue_hyperopt.foo.Foo(first_matrix=a, second_matrix=b)
     result = foo.multiply_matrices()
-
+    
     assert np.all(np.isclose(a @ b, result))
 
 

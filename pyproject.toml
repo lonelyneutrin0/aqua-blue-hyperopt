@@ -12,6 +12,7 @@ requires-python = ">=3.9"
 author = { name = "Hrishikesh Belagali", email = "hrishikesh.belagali@ccmc.global" }
 keywords = [
     'aqua-blue',
+    'computing'
     'optimization',
 ]
 classifiers = [
