@@ -23,6 +23,8 @@ classifiers = [
 ]
 dependencies = [
     "numpy ~= 2.0.2",
+    "aqua-blue~=0.2.17", 
+    "hyperopt~=0.2.7",
 ]
 
 [project.urls]
