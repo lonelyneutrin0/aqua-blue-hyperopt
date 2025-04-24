@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>aqua_blue_hyperopt.hyper API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>aqua_blue_hyperopt.hyper</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="aqua_blue_hyperopt.hyper.default_loss"><code class="name flex">
+<span>def <span class="ident">default_loss</span></span>(<span>mp: <a title="aqua_blue_hyperopt.hyper.ModelParams" href="#aqua_blue_hyperopt.hyper.ModelParams">ModelParams</a>) ‑> Callable[[<a title="aqua_blue_hyperopt.hyper.HyperParams" href="#aqua_blue_hyperopt.hyper.HyperParams">HyperParams</a>], <a title="aqua_blue_hyperopt.hyper.Output" href="#aqua_blue_hyperopt.hyper.Output">Output</a>]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def default_loss(mp: ModelParams) -&gt; Callable[[HyperParams], Output]:
+    def inner(p : HyperParams) -&gt; Output: 
+        spectral_radius, leaking_rate, sparsity, rcond = p[&#39;spectral_radius&#39;], p[&#39;leaking_rate&#39;], p[&#39;sparsity&#39;], p[&#39;rcond&#39;]
+        
+        normalizer = Normalizer()
+
+        model = Model( 
+            reservoir=DynamicalReservoir(
+                reservoir_dimensionality = mp.reservoir_dimensionality, 
+                input_dimensionality = mp.input_dimensionality,
+                w_res = mp.w_res, 
+                w_in = mp.w_in,
+                spectral_radius = spectral_radius,
+                leaking_rate = leaking_rate, 
+                sparsity = sparsity
+            ),
+            readout = LinearReadout(rcond = rcond)
+        )
+
+        normalized_time_series = normalizer.normalize(mp.time_series)
+        
+        try: 
+            model.train(normalized_time_series)
+        except np.linalg.LinAlgError:
+            warnings.warn(&#39;SVD Error in Training&#39;, RuntimeWarning)
+            return { 
+                &#39;loss&#39;: 1000, 
+                &#39;status&#39;: hyperopt.STATUS_FAIL
+            }
+        
+        try: 
+            prediction = model.predict(horizon = mp.horizon)
+        except np.linalg.LinAlgError:
+            warnings.warn(&#39;SVD Error in Training&#39;, RuntimeWarning)
+            return { 
+                &#39;loss&#39;: 1000, 
+                &#39;status&#39;: hyperopt.STATUS_FAIL
+            }
+        
+        prediction = normalizer.denormalize(prediction)
+        
+        if prediction.dependent_variable.shape != mp.actual_future.shape:
+            raise ValueError(&#39;Dimension mismatch between actual future and prediction&#39;)
+        
+        loss = np.sqrt(np.mean((mp.actual_future - prediction.dependent_variable) ** 2))
+
+        out : Output = { 
+            &#39;loss&#39;: loss, 
+            &#39;status&#39;: hyperopt.STATUS_OK
+        }
+        
+        return out 
+    
+    return inner</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="aqua_blue_hyperopt.hyper.Algo"><code class="flex name class">
+<span>class <span class="ident">Algo</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Algo(Enum):
+    TREE_PARZEN_ESTIMATOR = hyperopt.tpe.suggest
+    GRID_SEARCH = hyperopt.rand.suggest
+    SIMULATED_ANNEALING = hyperopt.anneal.suggest</code></pre>
+</details>
+<div class="desc"><p>An enumeration.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="aqua_blue_hyperopt.hyper.Algo.GRID_SEARCH"><code class="name flex">
+<span>def <span class="ident">GRID_SEARCH</span></span>(<span>new_ids, domain, trials, seed)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def suggest(new_ids, domain, trials, seed):
+    rng = np.random.default_rng(seed)
+    rval = []
+    for ii, new_id in enumerate(new_ids):
+        # -- sample new specs, idxs, vals
+        idxs, vals = pyll.rec_eval(
+            domain.s_idxs_vals, memo={domain.s_new_ids: [new_id], domain.s_rng: rng}
+        )
+        new_result = domain.new_result()
+        new_misc = dict(tid=new_id, cmd=domain.cmd, workdir=domain.workdir)
+        miscs_update_idxs_vals([new_misc], idxs, vals)
+        rval.extend(trials.new_trial_docs([new_id], [None], [new_result], [new_misc]))
+    return rval</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.Algo.SIMULATED_ANNEALING"><code class="name flex">
+<span>def <span class="ident">SIMULATED_ANNEALING</span></span>(<span>new_ids, domain, trials, seed, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def suggest(new_ids, domain, trials, seed, *args, **kwargs):
+    (new_id,) = new_ids
+    return AnnealingAlgo(domain, trials, seed, *args, **kwargs)(new_id)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.Algo.TREE_PARZEN_ESTIMATOR"><code class="name flex">
+<span>def <span class="ident">TREE_PARZEN_ESTIMATOR</span></span>(<span>new_ids,<br>domain,<br>trials,<br>seed,<br>prior_weight=1.0,<br>n_startup_jobs=20,<br>n_EI_candidates=24,<br>gamma=0.25,<br>verbose=True)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def suggest(
+    new_ids,
+    domain,
+    trials,
+    seed,
+    prior_weight=_default_prior_weight,
+    n_startup_jobs=_default_n_startup_jobs,
+    n_EI_candidates=_default_n_EI_candidates,
+    gamma=_default_gamma,
+    verbose=True,
+):
+    &#34;&#34;&#34;
+    Given previous trials and the domain, suggest the best expected hp point
+    according to the TPE-EI algo
+
+
+    Args:
+        prior_weight(
+        n_startup_jobs:
+        n_EI_candidates:
+        gamma:
+        verbose:
+
+    Returns:
+
+    &#34;&#34;&#34;
+
+    t0 = time.time()
+    # use build_posterior_wrapper to create the pyll nodes
+    observed, observed_loss, posterior = build_posterior_wrapper(
+        domain, prior_weight, gamma
+    )
+    tt = time.time() - t0
+    if verbose:
+        logger.info(&#34;build_posterior_wrapper took %f seconds&#34; % tt)
+
+    # Loop over previous trials to collect best_docs and best_docs_loss
+    best_docs = dict()
+    best_docs_loss = dict()
+    for doc in trials.trials:
+
+        # get either these docs own tid or the one that it&#39;s from
+        tid = doc[&#34;misc&#34;].get(&#34;from_tid&#34;, doc[&#34;tid&#34;])
+
+        # associate infinite loss to new/running/failed jobs
+        loss = doc[&#34;result&#34;].get(&#34;loss&#34;)
+        loss = float(&#34;inf&#34;) if loss is None else float(loss)
+
+        # if set, update loss for this tid if it&#39;s higher than current loss
+        # otherwise, set it
+        best_docs_loss.setdefault(tid, loss)
+        if loss &lt;= best_docs_loss[tid]:
+            best_docs_loss[tid] = loss
+            best_docs[tid] = doc
+
+    # -- sort docs by order of suggestion
+    #    so that linear_forgetting removes the oldest ones
+    tid_docs = sorted(best_docs.items())
+    losses = [best_docs_loss[tid] for tid, doc in tid_docs]
+    tids, docs = list(zip(*tid_docs)) if tid_docs else ([], [])
+
+    if verbose:
+        if docs:
+            s = &#34;%i/%i trials with best loss %f&#34; % (
+                len(docs),
+                len(trials),
+                np.nanmin(losses),
+            )
+        else:
+            s = &#34;0 trials&#34;
+        logger.info(&#34;TPE using %s&#34; % s)
+
+    if len(docs) &lt; n_startup_jobs:
+        # N.B. THIS SEEDS THE RNG BASED ON THE new_id
+        return rand.suggest(new_ids, domain, trials, seed)
+
+    # Sample and compute log-probability.
+    first_new_id = new_ids[0]
+    if tids:
+        # -- the +2 coordinates with an assertion above
+        #    to ensure that fake ids are used during sampling
+        #    TODO: not sure what assertion this refers to...
+        fake_id_0 = max(max(tids), first_new_id) + 2
+    else:
+        # -- weird - we&#39;re running the TPE algo from scratch
+        assert n_startup_jobs &lt;= 0
+        fake_id_0 = first_new_id + 2
+
+    fake_ids = list(range(fake_id_0, fake_id_0 + n_EI_candidates))
+
+    # -- this dictionary will map pyll nodes to the values
+    #    they should take during the evaluation of the pyll program
+    memo = {domain.s_new_ids: fake_ids, domain.s_rng: np.random.default_rng(seed)}
+
+    memo[observed_loss[&#34;idxs&#34;]] = tids
+    memo[observed_loss[&#34;vals&#34;]] = losses
+
+    observed_idxs_dict, observed_vals_dict = miscs_to_idxs_vals(
+        [doc[&#34;misc&#34;] for doc in docs], keys=list(domain.params.keys())
+    )
+    memo[observed[&#34;idxs&#34;]] = observed_idxs_dict
+    memo[observed[&#34;vals&#34;]] = observed_vals_dict
+
+    # evaluate `n_EI_candidates` pyll nodes in `posterior` using `memo`
+    # TODO: it seems to return idxs, vals, all the same. Is this correct?
+    idxs, vals = pyll.rec_eval(posterior, memo=memo, print_node_on_error=False)
+
+    # hack to add offset again for randint params
+    for label, param in domain.params.items():
+        if param.name == &#34;randint&#34; and len(param.pos_args) == 2:
+            offset = param.pos_args[0].obj
+            vals[label] = [val + offset for val in vals[label]]
+
+    # -- retrieve the best of the samples and form the return tuple
+
+    # specs are deprecated since build_posterior makes all the same
+    rval_specs = [None]
+    rval_results = [domain.new_result()]
+    rval_miscs = [{&#34;tid&#34;: first_new_id, &#34;cmd&#34;: domain.cmd, &#34;workdir&#34;: domain.workdir}]
+
+    miscs_update_idxs_vals(
+        rval_miscs,
+        idxs,
+        vals,
+        idxs_map={fake_ids[0]: first_new_id},
+        assert_all_vals_used=False,
+    )
+    # return the doc for the best new trial
+    return trials.new_trial_docs([first_new_id], rval_specs, rval_results, rval_miscs)</code></pre>
+</details>
+<div class="desc"><p>Given previous trials and the domain, suggest the best expected hp point
+according to the TPE-EI algo</p>
+<h2 id="args">Args</h2>
+<p>prior_weight(
+n_startup_jobs:
+n_EI_candidates:
+gamma:
+verbose:
+Returns:</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.HyperParams"><code class="flex name class">
+<span>class <span class="ident">HyperParams</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HyperParams(TypedDict): 
+    spectral_radius: hyperopt.pyll.base.Apply
+    leaking_rate: hyperopt.pyll.base.Apply
+    sparsity: hyperopt.pyll.base.Apply
+    rcond: hyperopt.pyll.base.Apply</code></pre>
+</details>
+<div class="desc"><p>dict() -&gt; new empty dictionary
+dict(mapping) -&gt; new dictionary initialized from a mapping object's
+(key, value) pairs
+dict(iterable) -&gt; new dictionary initialized as if via:
+d = {}
+for k, v in iterable:
+d[k] = v
+dict(**kwargs) -&gt; new dictionary initialized with the name=value pairs
+in the keyword argument list.
+For example:
+dict(one=1, two=2)</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.dict</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="aqua_blue_hyperopt.hyper.HyperParams.leaking_rate"><code class="name">var <span class="ident">leaking_rate</span> : hyperopt.pyll.base.Apply</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.HyperParams.rcond"><code class="name">var <span class="ident">rcond</span> : hyperopt.pyll.base.Apply</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.HyperParams.sparsity"><code class="name">var <span class="ident">sparsity</span> : hyperopt.pyll.base.Apply</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.HyperParams.spectral_radius"><code class="name">var <span class="ident">spectral_radius</span> : hyperopt.pyll.base.Apply</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.ModelParams"><code class="flex name class">
+<span>class <span class="ident">ModelParams</span></span>
+<span>(</span><span>time_series: aqua_blue.time_series.TimeSeries,<br>input_dimensionality: int,<br>reservoir_dimensionality: int,<br>horizon: int,<br>actual_future: numpy.ndarray[typing.Any, numpy.dtype[+_ScalarType_co]],<br>w_in: numpy.ndarray[typing.Any, numpy.dtype[+_ScalarType_co]] | None = None,<br>w_res: numpy.ndarray[typing.Any, numpy.dtype[+_ScalarType_co]] | None = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class ModelParams: 
+    time_series: TimeSeries
+    input_dimensionality: int
+    reservoir_dimensionality: int
+    horizon: int
+    actual_future: NDArray
+    w_in: Optional[NDArray] = None
+    w_res: Optional[NDArray] = None</code></pre>
+</details>
+<div class="desc"><p>ModelParams(time_series: aqua_blue.time_series.TimeSeries, input_dimensionality: int, reservoir_dimensionality: int, horizon: int, actual_future: numpy.ndarray[typing.Any, numpy.dtype[+_ScalarType_co]], w_in: Optional[numpy.ndarray[Any, numpy.dtype[+_ScalarType_co]]] = None, w_res: Optional[numpy.ndarray[Any, numpy.dtype[+_ScalarType_co]]] = None)</p></div>
+<h3>Instance variables</h3>
+<dl>
+<dt id="aqua_blue_hyperopt.hyper.ModelParams.actual_future"><code class="name">var <span class="ident">actual_future</span> : numpy.ndarray[typing.Any, numpy.dtype[+_ScalarType_co]]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.ModelParams.horizon"><code class="name">var <span class="ident">horizon</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.ModelParams.input_dimensionality"><code class="name">var <span class="ident">input_dimensionality</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.ModelParams.reservoir_dimensionality"><code class="name">var <span class="ident">reservoir_dimensionality</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.ModelParams.time_series"><code class="name">var <span class="ident">time_series</span> : aqua_blue.time_series.TimeSeries</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.ModelParams.w_in"><code class="name">var <span class="ident">w_in</span> : numpy.ndarray[typing.Any, numpy.dtype[+_ScalarType_co]] | None</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.ModelParams.w_res"><code class="name">var <span class="ident">w_res</span> : numpy.ndarray[typing.Any, numpy.dtype[+_ScalarType_co]] | None</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.Optimizer"><code class="flex name class">
+<span>class <span class="ident">Optimizer</span></span>
+<span>(</span><span>max_evals: int,<br>fn: Callable[[<a title="aqua_blue_hyperopt.hyper.HyperParams" href="#aqua_blue_hyperopt.hyper.HyperParams">HyperParams</a>], <a title="aqua_blue_hyperopt.hyper.Output" href="#aqua_blue_hyperopt.hyper.Output">Output</a>] | Callable[[<a title="aqua_blue_hyperopt.hyper.ModelParams" href="#aqua_blue_hyperopt.hyper.ModelParams">ModelParams</a>], Callable[[<a title="aqua_blue_hyperopt.hyper.HyperParams" href="#aqua_blue_hyperopt.hyper.HyperParams">HyperParams</a>], <a title="aqua_blue_hyperopt.hyper.Output" href="#aqua_blue_hyperopt.hyper.Output">Output</a>]] = &lt;function default_loss&gt;,<br>space: <a title="aqua_blue_hyperopt.hyper.HyperParams" href="#aqua_blue_hyperopt.hyper.HyperParams">HyperParams</a> = &lt;factory&gt;,<br>algo: <a title="aqua_blue_hyperopt.hyper.Algo" href="#aqua_blue_hyperopt.hyper.Algo">Algo</a> = &lt;function suggest&gt;,<br>trials: hyperopt.base.Trials | None = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class Optimizer: 
+    max_evals: int
+    fn: ObjectiveLike = default_loss
+    space: HyperParams = field(default_factory = lambda: default_space)
+    algo: Algo = Algo.GRID_SEARCH
+    trials: Optional[hyperopt.Trials] = None
+    
+    def optimize(self) -&gt; HyperParams:
+        
+        warnings.warn(&#34;This feature is currently experimental and may be unstable or subject to change. Feedback is welcome to help improve future versions.&#34;, UserWarning)
+
+        return hyperopt.fmin(
+            fn=self.fn, 
+            space=self.space,
+            algo=self.algo, 
+            max_evals=self.max_evals,
+            trials=self.trials
+        )</code></pre>
+</details>
+<div class="desc"><p>Optimizer(max_evals: int, fn: Union[Callable[[aqua_blue_hyperopt.hyper.HyperParams], aqua_blue_hyperopt.hyper.Output], Callable[[aqua_blue_hyperopt.hyper.ModelParams], Callable[[aqua_blue_hyperopt.hyper.HyperParams], aqua_blue_hyperopt.hyper.Output]]] = <function default_loss at 0x7ff0ef67fe50>, space: aqua_blue_hyperopt.hyper.HyperParams = <factory>, algo: aqua_blue_hyperopt.hyper.Algo = <function suggest at 0x7ff0eac969d0>, trials: Optional[hyperopt.base.Trials] = None)</p></div>
+<h3>Instance variables</h3>
+<dl>
+<dt id="aqua_blue_hyperopt.hyper.Optimizer.max_evals"><code class="name">var <span class="ident">max_evals</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.Optimizer.space"><code class="name">var <span class="ident">space</span> : <a title="aqua_blue_hyperopt.hyper.HyperParams" href="#aqua_blue_hyperopt.hyper.HyperParams">HyperParams</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.Optimizer.trials"><code class="name">var <span class="ident">trials</span> : hyperopt.base.Trials | None</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="aqua_blue_hyperopt.hyper.Optimizer.algo"><code class="name flex">
+<span>def <span class="ident">algo</span></span>(<span>new_ids, domain, trials, seed) ‑> <a title="aqua_blue_hyperopt.hyper.Algo" href="#aqua_blue_hyperopt.hyper.Algo">Algo</a></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def suggest(new_ids, domain, trials, seed):
+    rng = np.random.default_rng(seed)
+    rval = []
+    for ii, new_id in enumerate(new_ids):
+        # -- sample new specs, idxs, vals
+        idxs, vals = pyll.rec_eval(
+            domain.s_idxs_vals, memo={domain.s_new_ids: [new_id], domain.s_rng: rng}
+        )
+        new_result = domain.new_result()
+        new_misc = dict(tid=new_id, cmd=domain.cmd, workdir=domain.workdir)
+        miscs_update_idxs_vals([new_misc], idxs, vals)
+        rval.extend(trials.new_trial_docs([new_id], [None], [new_result], [new_misc]))
+    return rval</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.Optimizer.fn"><code class="name flex">
+<span>def <span class="ident">fn</span></span>(<span>mp: <a title="aqua_blue_hyperopt.hyper.ModelParams" href="#aqua_blue_hyperopt.hyper.ModelParams">ModelParams</a>) ‑> Callable[[<a title="aqua_blue_hyperopt.hyper.HyperParams" href="#aqua_blue_hyperopt.hyper.HyperParams">HyperParams</a>], <a title="aqua_blue_hyperopt.hyper.Output" href="#aqua_blue_hyperopt.hyper.Output">Output</a>]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def default_loss(mp: ModelParams) -&gt; Callable[[HyperParams], Output]:
+    def inner(p : HyperParams) -&gt; Output: 
+        spectral_radius, leaking_rate, sparsity, rcond = p[&#39;spectral_radius&#39;], p[&#39;leaking_rate&#39;], p[&#39;sparsity&#39;], p[&#39;rcond&#39;]
+        
+        normalizer = Normalizer()
+
+        model = Model( 
+            reservoir=DynamicalReservoir(
+                reservoir_dimensionality = mp.reservoir_dimensionality, 
+                input_dimensionality = mp.input_dimensionality,
+                w_res = mp.w_res, 
+                w_in = mp.w_in,
+                spectral_radius = spectral_radius,
+                leaking_rate = leaking_rate, 
+                sparsity = sparsity
+            ),
+            readout = LinearReadout(rcond = rcond)
+        )
+
+        normalized_time_series = normalizer.normalize(mp.time_series)
+        
+        try: 
+            model.train(normalized_time_series)
+        except np.linalg.LinAlgError:
+            warnings.warn(&#39;SVD Error in Training&#39;, RuntimeWarning)
+            return { 
+                &#39;loss&#39;: 1000, 
+                &#39;status&#39;: hyperopt.STATUS_FAIL
+            }
+        
+        try: 
+            prediction = model.predict(horizon = mp.horizon)
+        except np.linalg.LinAlgError:
+            warnings.warn(&#39;SVD Error in Training&#39;, RuntimeWarning)
+            return { 
+                &#39;loss&#39;: 1000, 
+                &#39;status&#39;: hyperopt.STATUS_FAIL
+            }
+        
+        prediction = normalizer.denormalize(prediction)
+        
+        if prediction.dependent_variable.shape != mp.actual_future.shape:
+            raise ValueError(&#39;Dimension mismatch between actual future and prediction&#39;)
+        
+        loss = np.sqrt(np.mean((mp.actual_future - prediction.dependent_variable) ** 2))
+
+        out : Output = { 
+            &#39;loss&#39;: loss, 
+            &#39;status&#39;: hyperopt.STATUS_OK
+        }
+        
+        return out 
+    
+    return inner</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.Optimizer.optimize"><code class="name flex">
+<span>def <span class="ident">optimize</span></span>(<span>self) ‑> <a title="aqua_blue_hyperopt.hyper.HyperParams" href="#aqua_blue_hyperopt.hyper.HyperParams">HyperParams</a></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def optimize(self) -&gt; HyperParams:
+    
+    warnings.warn(&#34;This feature is currently experimental and may be unstable or subject to change. Feedback is welcome to help improve future versions.&#34;, UserWarning)
+
+    return hyperopt.fmin(
+        fn=self.fn, 
+        space=self.space,
+        algo=self.algo, 
+        max_evals=self.max_evals,
+        trials=self.trials
+    )</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.Output"><code class="flex name class">
+<span>class <span class="ident">Output</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Output(TypedDict, total=False): 
+    loss: float
+    status: HyperoptStatus</code></pre>
+</details>
+<div class="desc"><p>dict() -&gt; new empty dictionary
+dict(mapping) -&gt; new dictionary initialized from a mapping object's
+(key, value) pairs
+dict(iterable) -&gt; new dictionary initialized as if via:
+d = {}
+for k, v in iterable:
+d[k] = v
+dict(**kwargs) -&gt; new dictionary initialized with the name=value pairs
+in the keyword argument list.
+For example:
+dict(one=1, two=2)</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.dict</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="aqua_blue_hyperopt.hyper.Output.loss"><code class="name">var <span class="ident">loss</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.Output.status"><code class="name">var <span class="ident">status</span> : Literal['ok', 'fail']</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="aqua_blue_hyperopt" href="index.html">aqua_blue_hyperopt</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="aqua_blue_hyperopt.hyper.default_loss" href="#aqua_blue_hyperopt.hyper.default_loss">default_loss</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="aqua_blue_hyperopt.hyper.Algo" href="#aqua_blue_hyperopt.hyper.Algo">Algo</a></code></h4>
+<ul class="">
+<li><code><a title="aqua_blue_hyperopt.hyper.Algo.GRID_SEARCH" href="#aqua_blue_hyperopt.hyper.Algo.GRID_SEARCH">GRID_SEARCH</a></code></li>
+<li><code><a title="aqua_blue_hyperopt.hyper.Algo.SIMULATED_ANNEALING" href="#aqua_blue_hyperopt.hyper.Algo.SIMULATED_ANNEALING">SIMULATED_ANNEALING</a></code></li>
+<li><code><a title="aqua_blue_hyperopt.hyper.Algo.TREE_PARZEN_ESTIMATOR" href="#aqua_blue_hyperopt.hyper.Algo.TREE_PARZEN_ESTIMATOR">TREE_PARZEN_ESTIMATOR</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="aqua_blue_hyperopt.hyper.HyperParams" href="#aqua_blue_hyperopt.hyper.HyperParams">HyperParams</a></code></h4>
+<ul class="">
+<li><code><a title="aqua_blue_hyperopt.hyper.HyperParams.leaking_rate" href="#aqua_blue_hyperopt.hyper.HyperParams.leaking_rate">leaking_rate</a></code></li>
+<li><code><a title="aqua_blue_hyperopt.hyper.HyperParams.rcond" href="#aqua_blue_hyperopt.hyper.HyperParams.rcond">rcond</a></code></li>
+<li><code><a title="aqua_blue_hyperopt.hyper.HyperParams.sparsity" href="#aqua_blue_hyperopt.hyper.HyperParams.sparsity">sparsity</a></code></li>
+<li><code><a title="aqua_blue_hyperopt.hyper.HyperParams.spectral_radius" href="#aqua_blue_hyperopt.hyper.HyperParams.spectral_radius">spectral_radius</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="aqua_blue_hyperopt.hyper.ModelParams" href="#aqua_blue_hyperopt.hyper.ModelParams">ModelParams</a></code></h4>
+<ul class="">
+<li><code><a title="aqua_blue_hyperopt.hyper.ModelParams.actual_future" href="#aqua_blue_hyperopt.hyper.ModelParams.actual_future">actual_future</a></code></li>
+<li><code><a title="aqua_blue_hyperopt.hyper.ModelParams.horizon" href="#aqua_blue_hyperopt.hyper.ModelParams.horizon">horizon</a></code></li>
+<li><code><a title="aqua_blue_hyperopt.hyper.ModelParams.input_dimensionality" href="#aqua_blue_hyperopt.hyper.ModelParams.input_dimensionality">input_dimensionality</a></code></li>
+<li><code><a title="aqua_blue_hyperopt.hyper.ModelParams.reservoir_dimensionality" href="#aqua_blue_hyperopt.hyper.ModelParams.reservoir_dimensionality">reservoir_dimensionality</a></code></li>
+<li><code><a title="aqua_blue_hyperopt.hyper.ModelParams.time_series" href="#aqua_blue_hyperopt.hyper.ModelParams.time_series">time_series</a></code></li>
+<li><code><a title="aqua_blue_hyperopt.hyper.ModelParams.w_in" href="#aqua_blue_hyperopt.hyper.ModelParams.w_in">w_in</a></code></li>
+<li><code><a title="aqua_blue_hyperopt.hyper.ModelParams.w_res" href="#aqua_blue_hyperopt.hyper.ModelParams.w_res">w_res</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="aqua_blue_hyperopt.hyper.Optimizer" href="#aqua_blue_hyperopt.hyper.Optimizer">Optimizer</a></code></h4>
+<ul class="two-column">
+<li><code><a title="aqua_blue_hyperopt.hyper.Optimizer.algo" href="#aqua_blue_hyperopt.hyper.Optimizer.algo">algo</a></code></li>
+<li><code><a title="aqua_blue_hyperopt.hyper.Optimizer.fn" href="#aqua_blue_hyperopt.hyper.Optimizer.fn">fn</a></code></li>
+<li><code><a title="aqua_blue_hyperopt.hyper.Optimizer.max_evals" href="#aqua_blue_hyperopt.hyper.Optimizer.max_evals">max_evals</a></code></li>
+<li><code><a title="aqua_blue_hyperopt.hyper.Optimizer.optimize" href="#aqua_blue_hyperopt.hyper.Optimizer.optimize">optimize</a></code></li>
+<li><code><a title="aqua_blue_hyperopt.hyper.Optimizer.space" href="#aqua_blue_hyperopt.hyper.Optimizer.space">space</a></code></li>
+<li><code><a title="aqua_blue_hyperopt.hyper.Optimizer.trials" href="#aqua_blue_hyperopt.hyper.Optimizer.trials">trials</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="aqua_blue_hyperopt.hyper.Output" href="#aqua_blue_hyperopt.hyper.Output">Output</a></code></h4>
+<ul class="">
+<li><code><a title="aqua_blue_hyperopt.hyper.Output.loss" href="#aqua_blue_hyperopt.hyper.Output.loss">loss</a></code></li>
+<li><code><a title="aqua_blue_hyperopt.hyper.Output.status" href="#aqua_blue_hyperopt.hyper.Output.status">status</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>
