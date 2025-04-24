@@ -8,11 +8,11 @@ from dataclasses import dataclass, field
 from enum import Enum
 import warnings
 
-from aqua_blue.time_series import TimeSeries
-from aqua_blue.models import Model
-from aqua_blue.reservoirs import DynamicalReservoir
-from aqua_blue.readouts import LinearReadout
-from aqua_blue.utilities import Normalizer
+from aqua_blue.time_series import TimeSeries # type: ignore
+from aqua_blue.models import Model # type: ignore
+from aqua_blue.reservoirs import DynamicalReservoir # type: ignore
+from aqua_blue.readouts import LinearReadout # type: ignore
+from aqua_blue.utilities import Normalizer # type: ignore
 
 # Hyperparameter Optimization Functionality 
 
