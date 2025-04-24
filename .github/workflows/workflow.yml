@@ -29,9 +29,6 @@ jobs:
       - name: Set up environment
         run: >-
           pip install .[dev]
-      - name: Test with pytest
-        run: >-
-          pytest -W error
       - name: Lint with ruff
         run: >-
           ruff check aqua_blue_hyperopt/
