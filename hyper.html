@@ -57,7 +57,7 @@ el.replaceWith(d);
         spectral_radius, leaking_rate, sparsity, rcond = p[&#39;spectral_radius&#39;], p[&#39;leaking_rate&#39;], p[&#39;sparsity&#39;], p[&#39;rcond&#39;]
         
         normalizer = Normalizer()
-
+        mp.readout.rcond = rcond
         model = Model( 
             reservoir=DynamicalReservoir(
                 reservoir_dimensionality = mp.reservoir_dimensionality, 
@@ -68,7 +68,7 @@ el.replaceWith(d);
                 leaking_rate = leaking_rate, 
                 sparsity = sparsity
             ),
-            readout = LinearReadout(rcond = rcond)
+            readout = mp.readout
         )
 
         normalized_time_series = normalizer.normalize(mp.time_series)
@@ -375,7 +375,7 @@ dict(one=1, two=2)</p></div>
 </dd>
 <dt id="aqua_blue_hyperopt.hyper.ModelParams"><code class="flex name class">
 <span>class <span class="ident">ModelParams</span></span>
-<span>(</span><span>time_series: aqua_blue.time_series.TimeSeries,<br>input_dimensionality: int,<br>reservoir_dimensionality: int,<br>horizon: int,<br>actual_future: numpy.ndarray[typing.Any, numpy.dtype[+_ScalarType_co]],<br>w_in: numpy.ndarray[typing.Any, numpy.dtype[+_ScalarType_co]] | None = None,<br>w_res: numpy.ndarray[typing.Any, numpy.dtype[+_ScalarType_co]] | None = None)</span>
+<span>(</span><span>time_series: aqua_blue.time_series.TimeSeries,<br>input_dimensionality: int,<br>reservoir_dimensionality: int,<br>horizon: int,<br>actual_future: numpy.ndarray[typing.Any, numpy.dtype[+_ScalarType_co]],<br>readout: aqua_blue.readouts.Readout,<br>w_in: numpy.ndarray[typing.Any, numpy.dtype[+_ScalarType_co]] | None = None,<br>w_res: numpy.ndarray[typing.Any, numpy.dtype[+_ScalarType_co]] | None = None)</span>
 </code></dt>
 <dd>
 <details class="source">
@@ -389,10 +389,11 @@ class ModelParams:
     reservoir_dimensionality: int
     horizon: int
     actual_future: NDArray
+    readout: aqua_blue.readouts.Readout
     w_in: Optional[NDArray] = None
     w_res: Optional[NDArray] = None</code></pre>
 </details>
-<div class="desc"><p>ModelParams(time_series: aqua_blue.time_series.TimeSeries, input_dimensionality: int, reservoir_dimensionality: int, horizon: int, actual_future: numpy.ndarray[typing.Any, numpy.dtype[+_ScalarType_co]], w_in: Optional[numpy.ndarray[Any, numpy.dtype[+_ScalarType_co]]] = None, w_res: Optional[numpy.ndarray[Any, numpy.dtype[+_ScalarType_co]]] = None)</p></div>
+<div class="desc"><p>ModelParams(time_series: aqua_blue.time_series.TimeSeries, input_dimensionality: int, reservoir_dimensionality: int, horizon: int, actual_future: numpy.ndarray[typing.Any, numpy.dtype[+_ScalarType_co]], readout: aqua_blue.readouts.Readout, w_in: Optional[numpy.ndarray[Any, numpy.dtype[+_ScalarType_co]]] = None, w_res: Optional[numpy.ndarray[Any, numpy.dtype[+_ScalarType_co]]] = None)</p></div>
 <h3>Instance variables</h3>
 <dl>
 <dt id="aqua_blue_hyperopt.hyper.ModelParams.actual_future"><code class="name">var <span class="ident">actual_future</span> : numpy.ndarray[typing.Any, numpy.dtype[+_ScalarType_co]]</code></dt>
@@ -404,6 +405,10 @@ class ModelParams:
 <div class="desc"></div>
 </dd>
 <dt id="aqua_blue_hyperopt.hyper.ModelParams.input_dimensionality"><code class="name">var <span class="ident">input_dimensionality</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="aqua_blue_hyperopt.hyper.ModelParams.readout"><code class="name">var <span class="ident">readout</span> : aqua_blue.readouts.Readout</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
@@ -454,7 +459,7 @@ class Optimizer:
             trials=self.trials
         )</code></pre>
 </details>
-<div class="desc"><p>Optimizer(max_evals: int, fn: Union[Callable[[aqua_blue_hyperopt.hyper.HyperParams], aqua_blue_hyperopt.hyper.Output], Callable[[aqua_blue_hyperopt.hyper.ModelParams], Callable[[aqua_blue_hyperopt.hyper.HyperParams], aqua_blue_hyperopt.hyper.Output]]] = <function default_loss at 0x7ff0ef67fe50>, space: aqua_blue_hyperopt.hyper.HyperParams = <factory>, algo: aqua_blue_hyperopt.hyper.Algo = <function suggest at 0x7ff0eac969d0>, trials: Optional[hyperopt.base.Trials] = None)</p></div>
+<div class="desc"><p>Optimizer(max_evals: int, fn: Union[Callable[[aqua_blue_hyperopt.hyper.HyperParams], aqua_blue_hyperopt.hyper.Output], Callable[[aqua_blue_hyperopt.hyper.ModelParams], Callable[[aqua_blue_hyperopt.hyper.HyperParams], aqua_blue_hyperopt.hyper.Output]]] = <function default_loss at 0x7fcddc456e50>, space: aqua_blue_hyperopt.hyper.HyperParams = <factory>, algo: aqua_blue_hyperopt.hyper.Algo = <function suggest at 0x7fcdcc527940>, trials: Optional[hyperopt.base.Trials] = None)</p></div>
 <h3>Instance variables</h3>
 <dl>
 <dt id="aqua_blue_hyperopt.hyper.Optimizer.max_evals"><code class="name">var <span class="ident">max_evals</span> : int</code></dt>
@@ -509,7 +514,7 @@ class Optimizer:
         spectral_radius, leaking_rate, sparsity, rcond = p[&#39;spectral_radius&#39;], p[&#39;leaking_rate&#39;], p[&#39;sparsity&#39;], p[&#39;rcond&#39;]
         
         normalizer = Normalizer()
-
+        mp.readout.rcond = rcond
         model = Model( 
             reservoir=DynamicalReservoir(
                 reservoir_dimensionality = mp.reservoir_dimensionality, 
@@ -520,7 +525,7 @@ class Optimizer:
                 leaking_rate = leaking_rate, 
                 sparsity = sparsity
             ),
-            readout = LinearReadout(rcond = rcond)
+            readout = mp.readout
         )
 
         normalized_time_series = normalizer.normalize(mp.time_series)
@@ -668,6 +673,7 @@ dict(one=1, two=2)</p></div>
 <li><code><a title="aqua_blue_hyperopt.hyper.ModelParams.actual_future" href="#aqua_blue_hyperopt.hyper.ModelParams.actual_future">actual_future</a></code></li>
 <li><code><a title="aqua_blue_hyperopt.hyper.ModelParams.horizon" href="#aqua_blue_hyperopt.hyper.ModelParams.horizon">horizon</a></code></li>
 <li><code><a title="aqua_blue_hyperopt.hyper.ModelParams.input_dimensionality" href="#aqua_blue_hyperopt.hyper.ModelParams.input_dimensionality">input_dimensionality</a></code></li>
+<li><code><a title="aqua_blue_hyperopt.hyper.ModelParams.readout" href="#aqua_blue_hyperopt.hyper.ModelParams.readout">readout</a></code></li>
 <li><code><a title="aqua_blue_hyperopt.hyper.ModelParams.reservoir_dimensionality" href="#aqua_blue_hyperopt.hyper.ModelParams.reservoir_dimensionality">reservoir_dimensionality</a></code></li>
 <li><code><a title="aqua_blue_hyperopt.hyper.ModelParams.time_series" href="#aqua_blue_hyperopt.hyper.ModelParams.time_series">time_series</a></code></li>
 <li><code><a title="aqua_blue_hyperopt.hyper.ModelParams.w_in" href="#aqua_blue_hyperopt.hyper.ModelParams.w_in">w_in</a></code></li>
