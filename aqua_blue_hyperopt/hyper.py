@@ -8,10 +8,10 @@ from dataclasses import dataclass, field
 from enum import Enum
 import warnings
 
+import aqua_blue # type: ignore
 from aqua_blue.time_series import TimeSeries # type: ignore
 from aqua_blue.models import Model # type: ignore
 from aqua_blue.reservoirs import DynamicalReservoir # type: ignore
-from aqua_blue.readouts import LinearReadout # type: ignore
 from aqua_blue.utilities import Normalizer # type: ignore
 
 # Hyperparameter Optimization Functionality 
@@ -31,6 +31,7 @@ class ModelParams:
     reservoir_dimensionality: int
     horizon: int
     actual_future: NDArray
+    readout: aqua_blue.readouts.Readout
     w_in: Optional[NDArray] = None
     w_res: Optional[NDArray] = None
 
@@ -51,7 +52,7 @@ default_space: HyperParams = {
     'spectral_radius': hyperopt.hp.uniform('spectral_radius', 0.1, 1.5),
     'leaking_rate': hyperopt.hp.uniform('leaking_rate', 0.0, 1.0),
     'sparsity': hyperopt.hp.uniform('sparsity', 0.0, 1.0),
-    'rcond': hyperopt.hp.uniform('rcond', 1e-8, 1e-2)
+    'rcond': hyperopt.hp.uniform('rcond', 1e-10, 1)
 }
 
 # Define a factory to input the model parameters 
@@ -60,7 +61,7 @@ def default_loss(mp: ModelParams) -> Callable[[HyperParams], Output]:
         spectral_radius, leaking_rate, sparsity, rcond = p['spectral_radius'], p['leaking_rate'], p['sparsity'], p['rcond']
         
         normalizer = Normalizer()
-
+        mp.readout.rcond = rcond
         model = Model( 
             reservoir=DynamicalReservoir(
                 reservoir_dimensionality = mp.reservoir_dimensionality, 
@@ -71,7 +72,7 @@ def default_loss(mp: ModelParams) -> Callable[[HyperParams], Output]:
                 leaking_rate = leaking_rate, 
                 sparsity = sparsity
             ),
-            readout = LinearReadout(rcond = rcond)
+            readout = mp.readout
         )
 
         normalized_time_series = normalizer.normalize(mp.time_series)
