@@ -1,7 +1,7 @@
 import numpy as np
 import hyperopt # type: ignore
 
-from typing import Optional, Callable, TypedDict, Literal, Union
+from typing import Optional, Callable, TypedDict, Literal, Union, Type
 from numpy.typing import NDArray
 
 from dataclasses import dataclass, field
@@ -31,7 +31,7 @@ class ModelParams:
     reservoir_dimensionality: int
     horizon: int
     actual_future: NDArray
-    readout: aqua_blue.readouts.Readout
+    readout: Type[aqua_blue.readouts.Readout]
     w_in: Optional[NDArray] = None
     w_res: Optional[NDArray] = None
 
@@ -61,7 +61,6 @@ def default_loss(mp: ModelParams) -> Callable[[HyperParams], Output]:
         spectral_radius, leaking_rate, sparsity, rcond = p['spectral_radius'], p['leaking_rate'], p['sparsity'], p['rcond']
         
         normalizer = Normalizer()
-        mp.readout.rcond = rcond
         model = Model( 
             reservoir=DynamicalReservoir(
                 reservoir_dimensionality = mp.reservoir_dimensionality, 
@@ -72,7 +71,7 @@ def default_loss(mp: ModelParams) -> Callable[[HyperParams], Output]:
                 leaking_rate = leaking_rate, 
                 sparsity = sparsity
             ),
-            readout = mp.readout
+            readout = mp.readout(rcond = rcond)
         )
 
         normalized_time_series = normalizer.normalize(mp.time_series)
