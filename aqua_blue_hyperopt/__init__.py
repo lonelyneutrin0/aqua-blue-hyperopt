@@ -1,10 +1,10 @@
-__version__ = "0.0.3"
+__version__ = "0.0.4"
 __authors__ = [
     "Hrishikesh Belagali"
 ]
 __author_emails__ = [
-    "hrishikesh.belagali@ccmc.global",
+    "belagal1@msu.edu",
 ]
-__url__ = "https://github.com/Chicago-Club-Management-Company/aqua-blue-hyperopt"
+__url__ = "https://github.com/lonelyneutrin0/aqua-blue-hyperopt"
 
 from . import hyper as hyper
